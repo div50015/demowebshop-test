@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selene import browser
 from utils import attach
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 
 DEFAULT_BROWSER_VERSION = "100.0"
@@ -16,9 +16,9 @@ def pytest_addoption(parser):
         default='100.0'
     )
 
-# @pytest.fixture(scope='session')
-# def load_env():
-#     load_dotenv()
+@pytest.fixture(scope='function')
+def load_env():
+    load_dotenv()
 
 
 @pytest.fixture(scope="function")
