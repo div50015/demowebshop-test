@@ -9,9 +9,7 @@ from selene import browser
 from selene.support.conditions import have
 from dotenv import load_dotenv
 
-load_dotenv()
-# LOGIN = 'example1200@example.com'
-# PASSWORD = '123456'
+# load_dotenv()
 LOGIN = os.getenv('LOGIN')
 PASSWORD = os.getenv('PASSWORD')
 WEB_URL = "https://demowebshop.tricentis.com/"
@@ -19,7 +17,8 @@ API_URL = "https://demowebshop.tricentis.com/"
 cookie = ''
 
 
-def test_login_through_api(browser_setup):
+def test_login_through_api(browser_setup, load_env):
+    print('\r\nRUN test ************************')
     with step("Login with API"):
         result = requests.post(
             url=API_URL + "/login",

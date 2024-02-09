@@ -16,7 +16,8 @@ def pytest_addoption(parser):
         default='100.0'
     )
 
-@pytest.fixture(scope='function')
+
+@pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
 
@@ -35,11 +36,10 @@ def browser_setup(request):
         }
     }
     options.capabilities.update(selenoid_capabilities)
-    login = 'user1'
-    password = '1234'
-    # login = os.getenv('LOGIN1')
-    # password = os.getenv('PASSWORD1')
-    # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
+    login = os.getenv('LOGIN1')
+    password = os.getenv('PASSWORD1')
+    print(f'{login}')
+    print(f'{password}')
     driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
 
     browser.config.driver = driver
