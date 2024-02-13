@@ -21,7 +21,7 @@ def test_page_book():
         browser.open(WEB_URL)
         browser.all('a[href="/books"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-        time.sleep(5)
+#        time.sleep(5)
     # body > div.master-wrapper-page > div.master-wrapper-content > div.header-menu > ul.top-menu > li:nth-child(1) > a
 #        browser.element('[class="page-title"]').should(have.texts('Books'))
 

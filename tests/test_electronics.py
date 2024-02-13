@@ -21,4 +21,4 @@ def test_page_electronics():
         browser.open(WEB_URL)
         browser.all('a[href="/electronics"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-        time.sleep(5)
+#        time.sleep(5)
