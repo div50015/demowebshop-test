@@ -21,4 +21,4 @@ def test_page_digital_downloads():
         browser.open(WEB_URL)
         browser.all('a[href="/digital-downloads"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-#        time.sleep(5)
+        time.sleep(1)
