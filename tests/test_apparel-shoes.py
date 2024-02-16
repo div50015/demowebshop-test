@@ -22,4 +22,4 @@ def test_page_apparel_shoes():
         browser.all('a[href="/apparel-shoes"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
         time.sleep(1)
-
+        browser.element('.page-title>h1').should(have.text('Apparel & Shoes'))

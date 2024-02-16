@@ -22,3 +22,4 @@ def test_page_digital_downloads():
         browser.all('a[href="/digital-downloads"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
         time.sleep(1)
+        browser.element('.page-title>h1').should(have.text('Digital downloads'))

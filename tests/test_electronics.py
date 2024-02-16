@@ -22,3 +22,4 @@ def test_page_electronics():
         browser.all('a[href="/electronics"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
         time.sleep(1)
+        browser.element('.page-title>h1').should(have.text('Electronics'))

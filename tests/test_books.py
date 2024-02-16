@@ -21,10 +21,8 @@ def test_page_book():
         browser.open(WEB_URL)
         browser.all('a[href="/books"]').first.click()
         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
+        browser.element('div.page-title>h1').should(have.text('Books'))
         time.sleep(1)
-    # body > div.master-wrapper-page > div.master-wrapper-content > div.header-menu > ul.top-menu > li:nth-child(1) > a
-#        browser.element('[class="page-title"]').should(have.texts('Books'))
-
 # ul.top-menu > li:nth-child(1) > a
 
 # def test_login_through_api(browser_setup, load_env):
