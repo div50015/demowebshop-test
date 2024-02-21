@@ -24,6 +24,9 @@ def load_env():
 
 @pytest.fixture(scope="function")
 def browser_setup(request):
+    LOGIN = os.getenv('LOGIN')
+    PASSWORD = os.getenv('PASSWORD')
+
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()

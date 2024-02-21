@@ -9,17 +9,11 @@ from allure_commons.types import AttachmentType
 from selene import browser
 from selene.support.conditions import have
 from dotenv import load_dotenv
-
-LOGIN = os.getenv('LOGIN')
-PASSWORD = os.getenv('PASSWORD')
-WEB_URL = "https://demowebshop.tricentis.com/"
-API_URL = "https://demowebshop.tricentis.com/"
-cookie = ''
+from pages.gift_cards_page import GiftCardsPage
 
 def test_page_gift_cards():
-    with step("Set cookie from API and open web url"):
-        browser.open(WEB_URL)
-        browser.all('a[href="/gift-cards"]').first.click()
-        # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-        time.sleep(1)
-        browser.element('.page-title>h1').should(have.text('Gift Cards'))
+    with step('Testing the gift cards page'):
+        gift_cards_page = GiftCardsPage()
+        gift_cards_page.open_main_page()
+        gift_cards_page.go_gift_cards_menu()
+        gift_cards_page.should_gift_cards_page()

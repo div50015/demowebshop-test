@@ -9,17 +9,12 @@ from allure_commons.types import AttachmentType
 from selene import browser
 from selene.support.conditions import have
 from dotenv import load_dotenv
+from pages.digital_downloads_page import DigitalDownloadfPage
 
-LOGIN = os.getenv('LOGIN')
-PASSWORD = os.getenv('PASSWORD')
-WEB_URL = "https://demowebshop.tricentis.com/"
-API_URL = "https://demowebshop.tricentis.com/"
-cookie = ''
 
-def test_page_digital_downloads():
-    with step("Set cookie from API and open web url"):
-        browser.open(WEB_URL)
-        browser.all('a[href="/digital-downloads"]').first.click()
-        # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-        time.sleep(1)
-        browser.element('.page-title>h1').should(have.text('Digital downloads'))
+def test_digital_downloads_page():
+    with step("Testing the digital-downloads page"):
+        digital_downloads_page = DigitalDownloadfPage()
+        digital_downloads_page.open_main_page()
+        digital_downloads_page.go_digital_downloads_menu()
+        digital_downloads_page.should_digital_downloads_page()

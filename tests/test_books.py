@@ -9,21 +9,31 @@ from allure_commons.types import AttachmentType
 from selene import browser
 from selene.support.conditions import have
 from dotenv import load_dotenv
+from pages.books_page import BookPage
 
-LOGIN = os.getenv('LOGIN')
-PASSWORD = os.getenv('PASSWORD')
-WEB_URL = "https://demowebshop.tricentis.com/"
-API_URL = "https://demowebshop.tricentis.com/"
-cookie = ''
 
-def test_page_book():
-    with step("Set cookie from API and open web url"):
-        browser.open(WEB_URL)
-        browser.all('a[href="/books"]').first.click()
-        # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
-        browser.element('div.page-title>h1').should(have.text('Books'))
-        time.sleep(1)
-# ul.top-menu > li:nth-child(1) > a
+def test_book_page():
+    with step('Testing the book page'):
+        books_page = BookPage()
+        books_page.open_main_page()
+        books_page.go_books_menu()
+        books_page.should_book_page()
+
+# LOGIN = os.getenv('LOGIN')
+# PASSWORD = os.getenv('PASSWORD')
+# WEB_URL = "https://demowebshop.tricentis.com/"
+# API_URL = "https://demowebshop.tricentis.com/"
+# cookie = ''
+#
+# def test_page_book():
+#     with step("Set cookie from API and open web url"):
+#         browser.open(WEB_URL)
+#         browser.all('a[href="/books"]').first.click()
+#         # browser.all('//div[@class="header-menu"]/ul/li/a[@href="/books"]').first.click()
+#         browser.element('div.page-title>h1').should(have.text('Books'))
+#         time.sleep(1)
+
+##############################################################
 
 # def test_login_through_api(browser_setup, load_env):
 #     print('\r\nRUN test ************************')
