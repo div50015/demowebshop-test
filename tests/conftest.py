@@ -22,7 +22,8 @@ def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope="function")
+# @pytest.fixture(scope="function")
+@pytest.fixture(scope="function", autouse=True)
 def browser_setup(request):
     LOGIN = os.getenv('LOGIN')
     PASSWORD = os.getenv('PASSWORD')
@@ -43,7 +44,8 @@ def browser_setup(request):
     password = os.getenv('PASSWORD1')
     print(f'{login}')
     print(f'{password}')
-    driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
+    # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
+    driver = webdriver.Remote(command_executor=f"http://87.117.11.241:4444/wd/hub", options=options)
 
     browser.config.driver = driver
     # browser.config.base_url = 'https://demoqa.com/automation-practice-form'
