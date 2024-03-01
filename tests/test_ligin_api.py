@@ -30,6 +30,7 @@ def test_login_through_api(browser_setup):
         logging.info(result.text)
 
 
+
     # global cookie
     # with step("Get cookie from API"):
     #     cookie = result.cookies.get("NOPCOMMERCE.AUTH")
